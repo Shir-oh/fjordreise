@@ -39,11 +39,11 @@ export default function HomePage() {
           </p>
 
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Finn din neste ferjereise
+            Finn din neste fergereise
           </h1>
 
           <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-            En enkel app for å søke etter og velge ferjeavganger.
+            En enkel app for å søke etter og velge fergeavganger.
           </p>
         </div>
 

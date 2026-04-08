@@ -5,10 +5,11 @@ export function formatDuration(minutes: number) {
     if (remainingMinutes === 0) {
         return `${hours}t`;
     }
+
     return `${hours}t ${remainingMinutes}m`;
 }
 
-export function formatDisplayDate(dateString: string) {
+export function formatDate(dateString: string) {
     const [year, month, day] = dateString.split("-");
     return `${day}.${month}.${year}`;
 }
