@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Departure } from "@/lib/departures";
 import { formatDuration } from "@/lib/format";
+import { primaryButton } from "@/lib/styles";
 
 type Props = {
     departure: Departure;
@@ -9,7 +10,7 @@ type Props = {
 
 export default function DepartureCard({ departure, onSelect }: Props) {
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 p-4 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 p-4 md:flex-row md:items-center md:justify-between hover:border-slate-300 transition-colors">
             <div>
                 <p className="flex items-center gap-2 font-medium text-slate-900">
                     <span>{departure.from}</span>
@@ -22,7 +23,7 @@ export default function DepartureCard({ departure, onSelect }: Props) {
                 </p>
 
                 <p className="mt-1 text-sm text-slate-600">
-                    {formatDuration(departure.durationMinutes)} min
+                    {formatDuration(departure.durationMinutes)}
                 </p>
             </div>
 
@@ -32,7 +33,7 @@ export default function DepartureCard({ departure, onSelect }: Props) {
                 <button
                     type="button"
                     onClick={() => onSelect(departure)}
-                    className="rounded-xl bg-[#D7002B] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                    className={primaryButton}
                 >
                     Velg avgang
                 </button>

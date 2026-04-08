@@ -1,4 +1,5 @@
-import { ChevronDown } from "lucide-react";
+import { primaryButton } from "@/lib/styles";
+import { ChevronDown, TriangleAlert } from "lucide-react";
 
 type Props = {
     from: string;
@@ -102,10 +103,19 @@ export default function SearchCard({
                         type="button"
                         onClick={onSearch}
                         disabled={isSearchDisabled}
-                        className="h-12 w-full rounded-xl bg-[#D7002B] px-4 font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:bg-slate-300"
+                        className={`h-12 w-full disabled:cursor-not-allowed disabled:bg-slate-300 ${primaryButton}`}
                     >
                         Søk avganger
                     </button>
+
+                    {from && to && from === to && (
+                        <p className="flex items-start gap-2 text-sm text-red-500">
+                            <TriangleAlert className="mt-0.2 size-5 shrink" aria-hidden="true" />
+                            <span>
+                                Avreisested og destinasjon kan ikke være det samme.
+                            </span>
+                        </p>
+                    )}
                 </div>
             </div>
         </div>

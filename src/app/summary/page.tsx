@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { departures } from "@/lib/departures";
 import { formatDate, formatDuration } from "@/lib/format";
+import { primaryButton, secondaryButton } from "@/lib/styles";
 
 type Props = {
     searchParams: Promise<{
@@ -38,7 +39,7 @@ export default async function SummaryPage({ searchParams }: Props) {
 
                     <Link
                         href="/"
-                        className="mt-6 inline-flex rounded-xl bg-[#D7002B] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                        className={`mt-6 ${primaryButton}`}
                     >
                         Tilbake til søk
                     </Link>
@@ -52,7 +53,7 @@ export default async function SummaryPage({ searchParams }: Props) {
     return (
         <main className="min-h-screen bg-[#FFF8F5] px-6 py-20 text-slate-900">
             <section className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-sm">
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#D7002B]">
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-brand">
                     Oppsummering
                 </p>
 
@@ -117,7 +118,7 @@ export default async function SummaryPage({ searchParams }: Props) {
 
                 <Link
                     href="/"
-                    className="mt-6 inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-50"
+                    className={`mt-6 w-full ${secondaryButton}`}
                 >
                     Søk på nytt
                 </Link>

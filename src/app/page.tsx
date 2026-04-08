@@ -5,6 +5,7 @@ import { useState } from "react";
 import DepartureCard from "@/components/DepartureCard";
 import SearchCard from "@/components/SearchCard";
 import { departures } from "@/lib/departures";
+import { formatDate } from "@/lib/format";
 
 export default function HomePage() {
   const router = useRouter();
@@ -34,7 +35,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#FFF8F5] text-slate-900">
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="space-y-4">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#D7002B]">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-brand">
             Fjordreise
           </p>
 
@@ -69,7 +70,7 @@ export default function HomePage() {
                 </h2>
 
                 <p className="mt-2 text-sm text-slate-600">
-                  {from} til {to} · {date}
+                  {from} til {to} · {formatDate(date)}
                 </p>
 
                 <div className="mt-6 space-y-4">
