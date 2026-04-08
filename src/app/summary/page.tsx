@@ -1,0 +1,91 @@
+import Link from "next/link";
+import { departures } from "@/lib/departures";
+import { formatDisplayDate, formatDuration } from "@/lib/format";
+
+type Props = {
+    searchParams: Promise<{
+        departureId?: string;
+    }>;
+};
+
+export default async function SummaryPage({ searchParams }: Props) {
+    const { departureId } = await searchParams;
+
+    const departure = departures.find((item) => item.id === departureId);
+
+    if (!departure) {
+        return (
+            <main className="min-h-screen bg-[#FFF8F5] px-6 py-20 text-slate-900">
+                <section className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-sm">
+                    <h1 className="text-2xl font-semibold">Ingen avgang valgt</h1>
+                    <p className="mt-3 text-slate-600">
+                        Gå tilbake og velg en avgang for å se oppsummeringen.
+                    </p>
+
+                    <Link
+                        href="/"
+                        className="mt-6 inline-flex rounded-xl bg-[#D7002B] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                    >
+                        Tilbake til søk
+                    </Link>
+                </section>
+            </main>
+        );
+    }
+
+    return (
+        <main className="min-h-screen bg-[#FFF8F5] px-6 py-20 text-slate-900">
+            <section className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-sm">
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#D7002B]">
+                    Oppsummering
+                </p>
+
+                <h1 className="mt-4 text-3xl font-semibold tracking-tight">
+                    Valgt ferjeavgang
+                </h1>
+
+                <div className="mt-8 space-y-4 rounded-2xl border border-slate-200 p-6">
+                    <div>
+                        <p className="text-sm text-slate-500">Rute</p>
+                        <p className="mt-1 font-medium text-slate-900">
+                            {departure.from} til {departure.to}
+                        </p>
+                    </div>
+
+                    <div>
+                        <p className="text-sm text-slate-500">Dato</p>
+                        <p className="mt-1 font-medium text-slate-900">{formatDisplayDate(departure.date)}</p>
+                    </div>
+
+                    <div>
+                        <p className="text-sm text-slate-500">Tid</p>
+                        <p className="mt-1 font-medium text-slate-900">
+                            {departure.departureTime} — {departure.arrivalTime}
+                        </p>
+                    </div>
+
+                    <div>
+                        <p className="text-sm text-slate-500">Varighet</p>
+                        <p className="mt-1 font-medium text-slate-900">
+                            {formatDuration(departure.durationMinutes)}
+                        </p>
+                    </div>
+
+                    <div>
+                        <p className="text-sm text-slate-500">Totalpris</p>
+                        <p className="mt-1 font-medium text-slate-900">
+                            {departure.price} NOK
+                        </p>
+                    </div>
+                </div>
+
+                <Link
+                    href="/"
+                    className="mt-6 inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-50"
+                >
+                    Søk på nytt
+                </Link>
+            </section>
+        </main>
+    );
+}

@@ -1,11 +1,14 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import DepartureCard from "@/components/DepartureCard";
 import SearchCard from "@/components/SearchCard";
 import { departures } from "@/lib/departures";
 
 export default function HomePage() {
+  const router = useRouter();
+
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [date, setDate] = useState("");
@@ -21,6 +24,10 @@ export default function HomePage() {
 
   function handleSearch() {
     setHasSearched(true);
+  }
+
+  function handleSelectDeparture(departureId: string) {
+    router.push(`/summary?departureId=${departureId}`);
   }
 
   return (
@@ -70,9 +77,9 @@ export default function HomePage() {
                     <DepartureCard
                       key={departure.id}
                       departure={departure}
-                      onSelect={(selected) => {
-                        console.log("Selected:", selected);
-                      }}
+                      onSelect={(selected) =>
+                        handleSelectDeparture(selected.id)
+                      }
                     />
                   ))}
                 </div>
