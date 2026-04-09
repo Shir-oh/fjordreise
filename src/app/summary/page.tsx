@@ -108,7 +108,8 @@ export default async function SummaryPage({ searchParams }: Props) {
                                         alt={`Kart over ruten fra ${departure.from} til ${departure.to}`}
                                         width={400}
                                         height={280}
-                                        className="h-full w-auto object-contain"
+                                        loading="eager"
+                                        className="h-full w-full object-contain"
                                     />
                                 </div>
                             </div>

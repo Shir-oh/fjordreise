@@ -1,12 +1,22 @@
 # Fjordreise
 
-A minimal ferry booking app built with Next.js.
+Fjordreise is a booking app for searching and selecting ferry departures.
+
+The app focuses on a clear and predictable flow:
+
+> search → view results → select departure → see summary.
+
+---
+
+## Preview
+
+![Fjordreise preview](public/images/preview.png)
 
 ---
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
@@ -22,32 +32,83 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ---
 
-## Notes
+## What the app does
 
-- The app uses static mock data (no backend or database)
-- Search results are strictly matched against available routes and dates
-- Available dates in the dataset:
-  - 2026-04-10
-  - 2026-04-11
+- Search for ferry departures by route and date
+- View available departures with time, duration, and price
+- Select a departure
+- View a summary of the selected trip
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+---
+
+## Technical Choices
+
+- Uses static mock data served through a Next.js API route
+- No database or external services
+- State is handled locally in components
+
+The implementation is intentionally simple, with focus on UI and flow rather than infrastructure.
+
+---
+
+## What I focused on
+
+- Clear and predictable user flow
+- Readable and maintainable component structure
+- Consistent UI patterns (cards, buttons, layout)
+- Avoiding unnecessary abstraction
+
+---
+
+## Edge Cases
+
+- Prevent selecting the same departure and destination
+- Show a clear empty state when no departures match
+- Handle missing or invalid departureId in the summary page
+- Allow the user to adjust search inputs and search again
 
 ---
 
 ## Trade-offs
 
-This project focuses on a simple and clear booking flow.
+- Static data instead of a real API
+- Strict filtering (no fuzzy search or suggestions)
+- No support for return trips or advanced booking logic
 
-### With more time, I would:
+These choices keep the scope focused and the behavior predictable.
+
+---
+
+## What I would improve with more time
 
 - Replace mock data with a real API
 - Add dynamic availability and more routes
-- Support return trips and more advanced filtering
+- Improve accessibility (keyboard navigation, ARIA)
+- Add loading and transition states
+- Expand route visualization beyond static images
 
 ---
 
-### Why this is better
+## Challenges
 
-- no repetition
-- shows intent (“Trade-offs” = very strong signal)
-- reads like a developer wrote it, not documentation filler
+- Balancing simplicity vs. abstraction
+- Deciding what to extract vs. keep inline
+- Keeping UI consistent without over-designing
 
 ---
+
+## Notes
+
+- The app uses mock data exposed via /api/departures
+- Available dates in the dataset:
+  - 10.04.2026
+  - 11.04.2026
