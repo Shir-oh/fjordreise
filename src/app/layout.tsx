@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Fjordreise",
-  description: "Search and select ferry departures in a minimal booking app built with Next.js.",
+  description: "Søk etter og velg ferjeavganger i en enkel bookingapp bygget med Next.js.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="no">
       <body>{children}</body>
     </html>
   );

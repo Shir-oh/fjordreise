@@ -1,10 +1,18 @@
 # Fjordreise
 
-Fjordreise is a booking app for searching and selecting ferry departures.
+Fjordreise is a small booking app for searching and selecting ferry departures.
 
 The app focuses on a clear and predictable flow:
 
 > search → view results → select departure → see summary.
+
+---
+
+## Live Demo
+
+(No login required)
+
+https://fjordreise.vercel.app/
 
 ---
 
@@ -56,7 +64,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - No database or external services
 - State is handled locally in components
 
-The implementation is intentionally simple, with focus on UI and flow rather than infrastructure.
+The implementation is intentionally simple, focusing on user flow and UI rather than infrastructure.
 
 ---
 
@@ -71,7 +79,7 @@ The implementation is intentionally simple, with focus on UI and flow rather tha
 
 ## Edge Cases
 
-- Prevent selecting the same departure and destination
+- Prevent selecting the same origin and destination
 - Show a clear empty state when no departures match
 - Handle missing or invalid departureId in the summary page
 - Allow the user to adjust search inputs and search again
@@ -92,7 +100,7 @@ These choices keep the scope focused and the behavior predictable.
 
 - Replace mock data with a real API
 - Add dynamic availability and more routes
-- Improve accessibility (keyboard navigation, ARIA)
+- Further improve accessibility (more complete keyboard navigation and expanded ARIA support)
 - Add loading and transition states
 - Expand route visualization beyond static images
 
@@ -108,7 +116,15 @@ These choices keep the scope focused and the behavior predictable.
 
 ## Notes
 
-- The app uses mock data exposed via /api/departures
+- Mock data is exposed via `/api/departures`
 - Available dates in the dataset:
-  - 10.04.2026
-  - 11.04.2026
+  - 15.04.2026
+  - 16.04.2026
+
+## Future improvements
+
+I chose not to implement multilingual routing, even though ferry booking platforms are typically multilingual.
+
+Since the brief did not require it, I prioritized completing the booking flow and keeping the solution focused and stable.
+
+If I had more time, adding Norwegian and English support would be a natural next step.

@@ -5,12 +5,12 @@ import { primaryButton } from "@/lib/styles";
 
 type Props = {
     departure: Departure;
-    onSelect: (departure: Departure) => void;
+    onSelect: (departure: string) => void;
 };
 
 export default function DepartureCard({ departure, onSelect }: Props) {
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 p-4 md:flex-row md:items-center md:justify-between hover:border-slate-300 transition-colors">
+        <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 p-4 transition-colors hover:border-slate-300 md:flex-row md:items-center md:justify-between">
             <div>
                 <p className="flex items-center gap-2 font-medium text-slate-900">
                     <span>{departure.from}</span>
@@ -32,7 +32,7 @@ export default function DepartureCard({ departure, onSelect }: Props) {
 
                 <button
                     type="button"
-                    onClick={() => onSelect(departure)}
+                    onClick={() => onSelect(departure.id)}
                     className={primaryButton}
                 >
                     Velg avgang

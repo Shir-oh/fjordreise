@@ -119,7 +119,7 @@ export default async function SummaryPage({ searchParams }: Props) {
 
                 <Link
                     href="/"
-                    className={`mt-6 w-full ${secondaryButton}`}
+                    className={`mt-6 flex w-full ${secondaryButton}`}
                 >
                     Søk på nytt
                 </Link>

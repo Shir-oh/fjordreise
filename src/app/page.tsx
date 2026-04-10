@@ -78,9 +78,7 @@ export default function HomePage() {
                     <DepartureCard
                       key={departure.id}
                       departure={departure}
-                      onSelect={(selected) =>
-                        handleSelectDeparture(selected.id)
-                      }
+                      onSelect={handleSelectDeparture}
                     />
                   ))}
                 </div>
